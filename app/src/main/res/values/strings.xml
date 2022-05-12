@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">RistoranteApp</string>
+    <string name="registration">Регистрация</string>
+    <string name="login">Логин</string>
+    <string name="email">Почта</string>
+    <string name="password">Пароль</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="welcome">Добро пожаловать,</string>
+    <string name="general_error">Произошла ошибка, пожалуйста повторите позже</string>
+    <string name="authorization">Авторизация</string>
+    <string name="sign_in">Войти</string>
+    <string name="already_have_account">Уже есть аккаунт?</string>
+    <string name="create_account">Создать аккаунт</string>
+    <string name="sign_out">Выйти</string>
+</resources>

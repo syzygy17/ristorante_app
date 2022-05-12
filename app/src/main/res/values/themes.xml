@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.RistoranteApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@android:color/holo_orange_light</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/holo_orange_light</item>
+    </style>
+</resources>
