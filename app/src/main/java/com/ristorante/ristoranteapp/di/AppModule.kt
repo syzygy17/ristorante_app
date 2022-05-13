@@ -3,17 +3,16 @@ package com.ristorante.ristoranteapp.di
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.ristorante.ristoranteapp.data.repository.DefaultAdminPanelRepository
-import com.ristorante.ristoranteapp.data.repository.DefaultAuthRepository
-import com.ristorante.ristoranteapp.data.repository.DefaultNewsRepository
-import com.ristorante.ristoranteapp.data.repository.DefaultRegistrationRepository
+import com.ristorante.ristoranteapp.data.repository.*
 import com.ristorante.ristoranteapp.domain.adminpanel.AdminPanelRepository
 import com.ristorante.ristoranteapp.domain.auth.AuthRepository
 import com.ristorante.ristoranteapp.domain.home.NewsRepository
+import com.ristorante.ristoranteapp.domain.menu.MenuRepository
 import com.ristorante.ristoranteapp.domain.registration.RegistrationRepository
 import com.ristorante.ristoranteapp.presentation.adminpanel.AdminPanelViewModel
 import com.ristorante.ristoranteapp.presentation.auth.AuthViewModel
 import com.ristorante.ristoranteapp.presentation.home.NewsViewModel
+import com.ristorante.ristoranteapp.presentation.menu.MenuViewModel
 import com.ristorante.ristoranteapp.presentation.registration.RegistrationViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.bind
@@ -47,6 +46,11 @@ val appModule = module {
             database = get()
         )
     }.bind(AdminPanelRepository::class)
+    factory {
+        DefaultMenuRepository(
+            database = get()
+        )
+    }.bind(MenuRepository::class)
     viewModel {
         RegistrationViewModel(
             registrationRepository = get()
@@ -65,6 +69,11 @@ val appModule = module {
     viewModel {
         AdminPanelViewModel(
             adminPanelRepository = get()
+        )
+    }
+    viewModel {
+        MenuViewModel(
+            menuRepository = get()
         )
     }
 }
