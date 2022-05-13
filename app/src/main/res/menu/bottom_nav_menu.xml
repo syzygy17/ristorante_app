@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/menu"
+        android:id="@+id/homeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_restaurant_24"
+        android:title="@string/app_name" />
+
+    <item
+        android:id="@+id/menuFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_restaurant_menu_24"
         android:title="@string/menu" />
 
-<!--    <item-->
-<!--        android:id="@+id/basket"-->
-<!--        android:enabled="true"-->
-<!--        android:icon="@drawable/ic_baseline_shopping_basket_24"-->
-<!--        android:title="@string/basket" />-->
+    <item
+        android:id="@+id/basketFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_shopping_basket_24"
+        android:title="@string/basket" />
 
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profileFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_account_circle_24"
         android:title="@string/profile" />
 
-    <item
-        android:id="@+id/about_restaurant"
-        android:enabled="true"
-        android:icon="@drawable/ic_baseline_restaurant_24"
-        android:title="@string/about_restaurant" />
 </menu>
