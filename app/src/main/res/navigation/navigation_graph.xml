@@ -37,6 +37,10 @@
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
 
+        <action
+            android:id="@+id/action_homeFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+
     </fragment>
 
     <fragment
@@ -57,6 +61,36 @@
             app:popUpTo="@id/authFragment"
             app:popUpToInclusive="true" />
 
+        <action
+            android:id="@+id/action_authFragment_to_adminPanelFragment"
+            app:destination="@id/adminPanelFragment" />
+
     </fragment>
+
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.ristorante.ristoranteapp.presentation.newsdetails.NewsDetailsFragment"
+        android:label="fragment_news_details"
+        tools:layout="@layout/fragment_news_details">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+
+        <argument
+            android:name="description"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminPanelFragment"
+        android:name="com.ristorante.ristoranteapp.presentation.adminpanel.AdminPanelFragment"
+        android:label="fragment_admin_panel"
+        tools:layout="@layout/fragment_admin_panel" />
 
 </navigation>

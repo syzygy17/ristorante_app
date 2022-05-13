@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".presentation.MainActivity">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"
+        tools:visibility="visible" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navigation_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

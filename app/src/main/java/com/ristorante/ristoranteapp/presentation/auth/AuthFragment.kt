@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.ristorante.ristoranteapp.R
 import com.ristorante.ristoranteapp.databinding.FragmentAuthBinding
 import com.ristorante.ristoranteapp.domain.presentation.ViewState
+import com.ristorante.ristoranteapp.utils.hideKeyboard
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -55,6 +56,7 @@ class AuthFragment : Fragment() {
         }
         signInButton.setOnClickListener {
             authViewModel.onSignInButtonClicked()
+            hideKeyboard()
         }
         createAccount.setOnClickListener {
             findNavController().navigate(R.id.action_authFragment_to_registrationFragment)
@@ -78,6 +80,7 @@ class AuthFragment : Fragment() {
 
     private fun handleAuthViewStateChanges(state: AuthViewState) = when (state) {
         is AuthViewState.Authorized -> onAuthorized()
+        is AuthViewState.AdminAuthorized -> findNavController().navigate(R.id.action_authFragment_to_adminPanelFragment)
     }
 
     private fun onAuthorized() {

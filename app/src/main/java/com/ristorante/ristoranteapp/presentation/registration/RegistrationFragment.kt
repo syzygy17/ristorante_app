@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.ristorante.ristoranteapp.R
 import com.ristorante.ristoranteapp.databinding.FragmentRegistrationBinding
 import com.ristorante.ristoranteapp.domain.presentation.ViewState
+import com.ristorante.ristoranteapp.utils.hideKeyboard
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -62,6 +63,7 @@ class RegistrationFragment : Fragment() {
         }
         signUpButton.setOnClickListener {
             registrationViewModel.onSignUpButtonClicked()
+            hideKeyboard()
         }
         alreadyHaveAccount.setOnClickListener {
             findNavController().navigate(R.id.action_registrationFragment_to_authFragment)

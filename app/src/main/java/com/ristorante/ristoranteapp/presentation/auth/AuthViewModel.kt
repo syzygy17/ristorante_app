@@ -14,6 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+private const val ADMIN_DATA = "1234"
+
 class AuthViewModel(
     private val authRepository: AuthRepository
 ) : ViewModel() {
@@ -41,6 +43,9 @@ class AuthViewModel(
 
     fun onSignInButtonClicked() = when {
         user.email.isBlank() || user.password.isBlank() -> onError(Throwable(FILL_FIELDS))
+        user.email == ADMIN_DATA && user.password == ADMIN_DATA -> {
+            _viewState.postValue(ViewState.Data(AuthViewState.AdminAuthorized))
+        }
         else -> onSignIn()
     }
 
