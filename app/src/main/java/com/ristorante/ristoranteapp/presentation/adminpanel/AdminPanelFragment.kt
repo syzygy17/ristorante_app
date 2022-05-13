@@ -66,8 +66,24 @@ class AdminPanelFragment : Fragment() {
                 )
             )
         }
+        menuProductIdEditText.doAfterTextChanged {
+            adminPanelViewModel.menu.id =
+                Integer.parseInt((it ?: return@doAfterTextChanged).toString())
+        }
+        menuProductImageUrlEditText.doAfterTextChanged {
+            adminPanelViewModel.menu.imageUrl = (it ?: return@doAfterTextChanged).toString()
+        }
+        menuProductNameEditText.doAfterTextChanged {
+            adminPanelViewModel.menu.productName = (it ?: return@doAfterTextChanged).toString()
+        }
+        menuProductCostEditText.doAfterTextChanged {
+            adminPanelViewModel.menu.productCost = (it ?: return@doAfterTextChanged).toString()
+        }
         saveNewsButton.setOnClickListener {
             adminPanelViewModel.onSaveNewsButtonClicked()
+        }
+        saveProductButton.setOnClickListener {
+            adminPanelViewModel.onSaveMenuButtonClicked()
         }
     }
 
@@ -85,11 +101,17 @@ class AdminPanelFragment : Fragment() {
 
     private fun handleAdminPanelViewStateChanges(state: AdminPanelViewState) = when (state) {
         is AdminPanelViewState.NewsSaved -> onNewsSaved()
+        is AdminPanelViewState.MenuSaved -> onMenuSaved()
     }
 
     private fun onNewsSaved() {
         setProgressBarVisibility(false)
         showToast(getString(R.string.news_saved_successfully))
+    }
+
+    private fun onMenuSaved() {
+        setProgressBarVisibility(false)
+        showToast(getString(R.string.menu_saved_successfully))
     }
 
     private fun onError(throwable: Throwable) {

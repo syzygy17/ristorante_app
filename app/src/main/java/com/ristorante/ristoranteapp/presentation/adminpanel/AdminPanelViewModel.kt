@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ristorante.ristoranteapp.domain.Response
 import com.ristorante.ristoranteapp.domain.adminpanel.AdminPanelRepository
+import com.ristorante.ristoranteapp.domain.adminpanel.MutableMenu
 import com.ristorante.ristoranteapp.domain.adminpanel.MutableNews
 import com.ristorante.ristoranteapp.domain.presentation.ViewState
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +19,9 @@ class AdminPanelViewModel(
 
     private val news: MutableNews by lazy {
         MutableNews()
+    }
+    val menu: MutableMenu by lazy {
+        MutableMenu()
     }
 
     private val _viewState = MutableLiveData<ViewState<AdminPanelViewState>>()
@@ -38,6 +42,13 @@ class AdminPanelViewModel(
         }
     }
 
+    fun onSaveMenuButtonClicked() {
+        _viewState.value = ViewState.Loading
+        viewModelScope.launch {
+            saveMenu()
+        }
+    }
+
     private suspend fun saveNews() = withContext(Dispatchers.IO) {
         when (val result = adminPanelRepository.saveNews(news)) {
             is Response.Success -> onNewsSaved(result.data)
@@ -45,9 +56,22 @@ class AdminPanelViewModel(
         }
     }
 
+    private suspend fun saveMenu() = withContext(Dispatchers.IO) {
+        when (val result = adminPanelRepository.saveMenu(menu)) {
+            is Response.Success -> onMenuSaved(result.data)
+            is Response.Failure -> onError(result.data)
+        }
+    }
+
     private fun onNewsSaved(isNewsSaved: Boolean) {
         if (isNewsSaved) {
             _viewState.postValue(ViewState.Data(AdminPanelViewState.NewsSaved))
+        }
+    }
+
+    private fun onMenuSaved(isMenuSaved: Boolean) {
+        if (isMenuSaved) {
+            _viewState.postValue(ViewState.Data(AdminPanelViewState.MenuSaved))
         }
     }
 

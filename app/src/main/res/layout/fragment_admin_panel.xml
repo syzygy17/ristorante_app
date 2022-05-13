@@ -65,6 +65,62 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/news_description_edit_text" />
 
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/save_news_button" />
+
+            <EditText
+                android:id="@+id/menu_product_id_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="id"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <EditText
+                android:id="@+id/menu_product_image_url_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="image url"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/menu_product_id_edit_text" />
+
+
+            <EditText
+                android:id="@+id/menu_product_name_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="product name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/menu_product_image_url_edit_text" />
+
+            <EditText
+                android:id="@+id/menu_product_cost_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="product cost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/menu_product_name_edit_text" />
+
+            <Button
+                android:id="@+id/save_product_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Save product"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/menu_product_cost_edit_text" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
@@ -73,11 +129,11 @@
         android:id="@+id/admin_panel_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,12 +33,12 @@ class MenuViewModel(
 
     private suspend fun getMenu() = withContext(Dispatchers.IO) {
         when (val result = menuRepository.getMenu()) {
-            is Response.Success -> onNewsFetched(result.data)
+            is Response.Success -> onMenuFetched(result.data)
             is Response.Failure -> onError(result.data)
         }
     }
 
-    private fun onNewsFetched(menu: List<Menu>) =
+    private fun onMenuFetched(menu: List<Menu>) =
         _viewState.postValue(ViewState.Data(MenuViewState.MenuFetched(menu)))
 
     private fun onError(throwable: Throwable) =
