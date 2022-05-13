@@ -13,7 +13,7 @@
     <string name="create_account">Создать аккаунт</string>
     <string name="sign_out">Выйти</string>
     <string name="news">Новости</string>
-    <string name="news_saved_successfully">Новости успешно сохранены</string>
+    <string name="news_saved_successfully">Новость успешно сохранены</string>
     <string name="menu_saved_successfully">Блюдо меню успешно сохранено</string>
     <string name="menu">Меню</string>
     <string name="basket">Корзина</string>
