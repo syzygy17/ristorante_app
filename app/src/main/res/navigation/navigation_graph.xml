@@ -32,12 +32,6 @@
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_homeFragment_to_authFragment"
-            app:destination="@id/authFragment"
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true" />
-
-        <action
             android:id="@+id/action_homeFragment_to_newsDetailsFragment"
             app:destination="@id/newsDetailsFragment" />
 
@@ -109,6 +103,14 @@
         android:id="@+id/profileFragment"
         android:name="com.ristorante.ristoranteapp.presentation.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_authFragment"
+            app:destination="@id/authFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
 
 </navigation>

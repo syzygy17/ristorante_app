@@ -48,16 +48,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setListeners()
         setNewsRecyclerView()
         startObserving()
-    }
-
-    private fun setListeners() = with(binding) {
-        signOutTextView.setOnClickListener {
-            Firebase.auth.signOut()
-            findNavController().navigate(R.id.action_homeFragment_to_authFragment)
-        }
     }
 
     private fun setNewsRecyclerView() = binding.newsRecyclerView.apply {

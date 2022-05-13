@@ -14,20 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/news">
-
-        <TextView
-            android:id="@+id/sign_out_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_margin="14dp"
-            android:text="@string/sign_out"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-    </androidx.appcompat.widget.Toolbar>
+        app:title="@string/news" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/news_recycler_view"
